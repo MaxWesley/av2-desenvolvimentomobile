@@ -1,0 +1,44 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "profile":{
+                "name": "Max Wesley Marques Resende",
+                "email":"maxwesleydev@gmail.com",
+                "password": ""
+            },
+            "skills": {
+                "hardskills": [
+                    {
+                        "skill_name": "HTML",
+                        "nivel": "10"
+                    },
+                    {
+                        "skill_name": "CSS",
+                        "nivel": "10"
+                    },
+                    {
+                        "skill_name": "JavaScript",
+                        "nivel": "10"
+                    },
+                    {
+                        "skill_name": "ReactJS",
+                        "nivel": "9.1"
+                    },
+                    {
+                        "skill_name": "React-Native",
+                        "nivel": "8.5"
+                    }
+                ],
+                "softskills": [
+                    "liderança",
+                    "Empatia",
+                    "Comunicação"
+                ]
+            },
+            "public_datails": {
+                "rating": "4.99"
+            }
+        }
+    ]
+}
