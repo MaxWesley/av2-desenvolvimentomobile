@@ -11,9 +11,11 @@ return(
     )
 };
 
-export function Skill({ titulo, bg = 'white', border = "transparent", colorText = 'black', bold, fsize }) {
+export function Skill({ titulo, bg = 'white', border = "transparent", colorText = 'black', bold, fsize, onPress }) {
     return(
-        <TouchableOpacity style={{...styles.container, marginRight: 10, marginTop: 15, borderColor: border, backgroundColor: bg}}>
+        <TouchableOpacity 
+            onPress={() => onPress()}
+            style={{...styles.container, marginRight: 10, marginTop: 15, borderColor: border, backgroundColor: bg}}>
             <Text style={{color: colorText, fontWeight: bold, fontSize: fsize}}>
                 {titulo}
             </Text>

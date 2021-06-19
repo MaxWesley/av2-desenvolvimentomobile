@@ -7,11 +7,12 @@ export const Background = styled.ImageBackground`
     padding-bottom: 60px;
 `;
 
+export const BackgroundLogin = styled.ImageBackground`
+    flex: 1;
+`
+
 export const Container = styled.View`
-    /* flex:1; */
     padding: 60px 16px;
-    /* display: flex; */
-    /* justify-content: center; */
     align-items: flex-start;
 `;
 
@@ -21,7 +22,6 @@ export const FundoTela = styled.Image`
 export const ContainerGrupos = styled.View`
     width: 100%;
     background-color: #fcfdff;
-    /* width: 90%; */
     flex: 1;
     border-radius: 15px;
     display: flex;
@@ -183,3 +183,11 @@ export const BotaoVoador = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
 `;
+
+export const LogoIMG = styled.Image`
+    position: absolute;
+    top: 32px;
+    left: 0;
+
+    transform: scale(0.9, 0.9);
+`

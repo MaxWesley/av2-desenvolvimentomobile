@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Text, View, StyleSheet, ScrollView, Image } from 'react-native'
 import { Avatar } from 'react-native-elements'
 
@@ -24,8 +24,17 @@ import { ProgressBar, Colors } from 'react-native-paper';
 
 import users from '../../services/db.json'
 
+import { Context } from '../../contexts/users'
+
 function Perfil(navigation) {
     const [data, setData]  = useState()
+
+    const { signOut } = useContext(Context);
+
+    function handlerSignOut() {
+        signOut();
+        console.warn('teste');
+    }
 
     useEffect(() => {
         let user = users.users.find(user => user.id === 1)
@@ -54,8 +63,15 @@ function Perfil(navigation) {
                             <Text style={{ ...styles.texto, fontSize: 23, fontWeight: 'bold' }}>{data?.profile?.name}</Text>
                             <Text style={styles.texto}>{data?.profile?.email}</Text>
                         </ContainerTextTarefas>
-                        <ContainerTarefas style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <Skill titulo={'Sair'} colorText={'#c427cc'} bold={'bold'} fsize={20} />
+                        <ContainerTarefas
+                            style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <Skill
+                                onPress={() => signOut()}
+                                titulo={'Sair'}
+                                colorText={'#c427cc'}
+                                bold={'bold'}
+                                fsize={20}
+                            />
                         </ContainerTarefas>
                     </ContainerGrupos>
 

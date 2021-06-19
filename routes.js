@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
 
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import { Dashboard } from './src/screens/Dashboard'
 import { Grupos } from './src/screens/Grupos'
 import { Disciplinas } from './src/screens/Disciplinas'
 import { Skills } from './src/screens/Skills'
 import { Perfil } from './src/screens/Perfil'
+import { Login } from './src/screens/Auth'
 
 const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator()
+
+import { Context } from './src/contexts/users'
 
 function Routes() {
     const tabBarOptionsStyles = {
@@ -47,6 +51,23 @@ function Routes() {
         return icon
     }
 
+    const { user } = useContext(Context);
+
+    if (!user) {
+        return (
+            <NavigationContainer>
+                <Stack.Navigator screenOptions={{
+                    headerShown: false
+                }}>
+                    <Stack.Screen
+                        name="Login"
+                        component={Login}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        )
+    }
+
     return (
         <NavigationContainer>
             <Tab.Navigator
@@ -67,10 +88,6 @@ function Routes() {
                     }
                 })}
             >
-                {/* <Tab.Screen
-                    name="Dashboard"
-                    component={Dashboard}
-                /> */}
                 <Tab.Screen
                     name="Grupos"
                     component={Grupos}
